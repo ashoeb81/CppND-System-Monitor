@@ -17,6 +17,7 @@
 #include <time.h>
 #include <unistd.h>
 #include "constants.h"
+#include "util.h"
 
 
 using namespace std;
@@ -45,3 +46,15 @@ private:
 };
 
 // TODO: Define all of the above functions below:
+std::string getVmSize(std::string pid) {
+    string line;
+    // Search attribute for file.
+    string name = "VmData";
+    string value;
+    float result;
+    // Opening stream to specific file.
+    ifstream stream = Util::getStream((Path::basePath() + pid + Path::statusPath()));
+    while(std::getline(stream, line)) {
+        
+    }
+}
