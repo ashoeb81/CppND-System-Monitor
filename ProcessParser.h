@@ -55,6 +55,15 @@ std::string getVmSize(std::string pid) {
     // Opening stream to specific file.
     ifstream stream = Util::getStream((Path::basePath() + pid + Path::statusPath()));
     while(std::getline(stream, line)) {
-        
+        // Search line by line for specific attribute.
+        if (line.compare(0, name.size(), name) == 0) {
+            istringstream buf(line);
+            istream_iterator<string> beg(buf), end;
+            vector<string> values(beg, end);
+            // conversion kB -> GB
+            result = (stof(values[1])/float(1024*1024));
+            break;
+        } 
     }
+    return to_string(result);
 }
