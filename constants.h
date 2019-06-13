@@ -1,4 +1,4 @@
-#ifdef CONSTANTS_H
+#ifndef CONSTANTS_H
 #define CONSTANTS_H
 
 #include <string>
@@ -43,4 +43,4 @@ public:
     }
 };
 
-endif  // CONSTANTS_H
+#endif  // CONSTANTS_H
