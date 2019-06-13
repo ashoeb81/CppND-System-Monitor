@@ -1,3 +1,6 @@
+#ifdef CONSTANTS_H
+#define CONSTANTS_H
+
 #include <string>
 using namespace std;
 
@@ -39,3 +42,5 @@ public:
         return "version";
     }
 };
+
+endif  // CONSTANTS_H
