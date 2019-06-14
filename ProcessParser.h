@@ -62,7 +62,7 @@ private:
     static int getNumberOfRunningProcesses();
     static string getOSName();
     static std::string PrintCpuStats(std::vector<std::string> values1, std::vector<std::string>values2);
-    static bool isPidExisting(string pid)  {return true;}
+    static bool isPidExisting(string pid);
 };
 
 // TODO: Define all of the above functions below:
@@ -382,6 +382,14 @@ int ProcessParser::getTotalThreads()
     }
     return result;
     }
+}
+
+bool ProcessParser::isPidExisting(string pid) {
+    vector<string> pid_list = ProcessParser::getPidList();
+    if (std::find(pid_list.begin(), pid_list.end(), pid) != pid_list.end()) {
+        return true;
+    }
+    return false;
 }
 
 #endif 
