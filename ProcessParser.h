@@ -1,3 +1,6 @@
+#ifndef PROCESS_PARSER_H
+#define PROCESS_PARSER_H
+
 #include <algorithm>
 #include <iostream>
 #include <math.h>
@@ -379,3 +382,5 @@ int ProcessParser::getTotalThreads()
     }
     return result;
 }
+
+#endif 
