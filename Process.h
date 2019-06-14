@@ -2,6 +2,9 @@
 #define PROCESS_H
 
 #include <string>
+#include <iostream>
+
+//#include "ProcessParser.h"
 
 using namespace std;
 /*
@@ -15,7 +18,7 @@ private:
     string cmd;
     string cpu;
     string mem;
-    string upTime;
+    string up_time;
 
 public:
     Process(string pid){
@@ -45,7 +48,7 @@ string Process::getProcess(){
     if(!ProcessParser::isPidExisting(this->pid))
         return "";
     this->mem = ProcessParser::getVmSize(this->pid);
-    this->upTime = ProcessParser::getProcUpTime(this->pid);
+    this->up_time = ProcessParser::getProcUpTime(this->pid);
     this->cpu = ProcessParser::getCpuPercent(this->pid);
         return (this->pid + "   "
                     + this->user

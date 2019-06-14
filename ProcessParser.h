@@ -62,18 +62,18 @@ private:
     static int getNumberOfRunningProcesses();
     static string getOSName();
     static std::string PrintCpuStats(std::vector<std::string> values1, std::vector<std::string>values2);
-    static bool isPidExisting(string pid);
+    static bool isPidExisting(string pid)  {return true;}
 };
 
 // TODO: Define all of the above functions below:
-std::string getVmSize(std::string pid) {
+std::string ProcessParser::getVmSize(string pid) {
     string line;
     // Search attribute for file.
     string name = "VmData";
     string value;
     float result;
     // Opening stream to specific file.
-    ifstream stream = Util::getStream((Path::basePath() + pid +  "/" + Path::statusPath()));
+    ifstream stream = Util::getStream((Path::basePath() + pid + Path::statusPath()));
     while(std::getline(stream, line)) {
         // Search line by line for specific attribute.
         if (line.compare(0, name.size(), name) == 0) {
@@ -381,6 +381,7 @@ int ProcessParser::getTotalThreads()
         }
     }
     return result;
+    }
 }
 
 #endif 
